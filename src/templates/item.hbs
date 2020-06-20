@@ -1,0 +1,21 @@
+<li class="post-feed-item">
+    <article class="post">
+        <header class="post__header">
+            <img src="{{author.avatar}}" alt="" height="100px" class="post__avatar">
+            <div class="post_meta">
+                <h2 class="post__author">{{author.name}}</h2>
+                <p class="post__date"></p>
+            </div>
+        </header>
+        <p class="Post__text">{{text}}</p>
+        <footer class="post__footer">
+            <ul class="tag__list">
+                {{#each tags}}
+                <li class="tag-list__item">
+                    <a href="#" class="tag-list__link">{{this}}</a>
+                </li>
+                {{/each}}
+            </ul>
+        </footer>
+    </article>
+</li>

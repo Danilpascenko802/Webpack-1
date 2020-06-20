@@ -3,7 +3,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const webpackMerge = require("webpack-merge");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const WebpackBar = require("webpackbar");
- 
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
+const Handlebars = require("handlebars");
 // console.log("DIRNAME", __dirname); // глобальная переменная, содержащая абсолютный путь к файлу
 const loadModeConfig = (env) =>
   require(`./build-utils/${env.mode}.config`)(env);
@@ -55,6 +56,9 @@ module.exports = (env) =>
         new CleanWebpackPlugin(),
         new FriendlyErrorsWebpackPlugin(),
         new WebpackBar(),
+        new MomentLocalesPlugin({
+          localesToKeep: ['es-us', 'ru', 'uk-uk'],
+      }),
       ],
     },
     loadModeConfig(env)
